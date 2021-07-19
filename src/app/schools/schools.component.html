@@ -1,0 +1,163 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1> NG FOR funcionando aqui.</h1>
+      <app-school *ngFor="let school of schools"></app-school>
+      <input type="text" class="form-control">
+      <button class="btn btn-primary" (click)="createSchool()">
+        INCLUIR
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h3>
+        ------------------------------------------------------------------
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h1> NG FOR funcionando aqui 02.</h1>
+      <p>
+        {{schools}}
+
+      </p>
+      <input type="text" class="form-control">
+      <button class="btn btn-primary">
+        INCLUIR
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <h3>
+        ------------------------------------------------------------------
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button class="btn btn-primary" [disabled]="!aceitaNovaEscola">
+        INCLUIR
+      </button>
+      <h2>String interpolation e property Binding</h2>
+      <p [innerText]="aceitaNovaEscola"></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h3>
+        ------------------------------------------------------------------
+      </h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h2>EventClick</h2>
+      <p>{{ createdSchoolStatus }}</p>
+      <button class="btn btn-primary" (click)="createSchool()">
+        Altera o Property Binding acima.
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h3>
+        ------------------------------------------------------------------
+      </h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h2>
+        EventBiding 02 Cada vez que for clicado será disparado um evento
+      </h2>
+      <label for=""> Nome da Escola</label>
+      <input type="text" class="form-control" (input)="updateEscola($event)" />
+      <h4>Abaixo a captura do evento!</h4>
+      <p>{{ nomeEscola }}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h3>
+        ------------------------------------------------------------------
+      </h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h2>TwoDataBinding Maneira de unir property Binding e event Binding</h2>
+      <label for=""> Nome da Escola</label>
+      <input type="text" class="form-control" [(ngModel)]="nomeEscola" />
+      <h4>Abaixo a captura do evento!</h4>
+      <p>{{ nomeEscola }}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h3>
+        ------------------------------------------------------------------
+      </h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h2>Directives</h2>
+      <h3>Instruções no dom, o próprio component é um tipo de directive.</h3>
+      <label for=""> Nome da Escola</label>
+      <input type="text" class="form-control" [(ngModel)]="nomeEscola" />
+      <button class="btn btn-primary" [disabled]="!aceitaNovaEscola" (click)="createSchool()">
+        APENAS IF
+      </button>
+      <p *ngIf="schoolCreated">A escola foi criada: {{ nomeEscola }}</p>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-12">
+      <h3>
+        ------------------------------------------------------------------
+      </h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h2>Directives NGIF e ELSE</h2>
+      <h3>Instruções no dom, o próprio component é um tipo de directive.</h3>
+      <label for=""> Nome da Escola</label>
+      <input type="text" class="form-control" [(ngModel)]="nomeEscola" />
+      <button class="btn btn-primary" [disabled]="!aceitaNovaEscola" (click)="createSchool()">
+        IF OU ELSE
+      </button>
+
+      <p *ngIf="schoolCreated; else noSchool">
+        A escola foi criada: {{ nomeEscola }}
+      </p>
+      <ng-template #noSchool>
+        <p>Nenhuma escola foi criadinha</p>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <h3>------------------------------------------------------------------</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <h2>Directives de estilo Ng style</h2>
+  </div>
+</div>
